@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breville/Sage Oracle: abur și coduri ER — ce verifici mai întâi</title>
+<meta name="description" content="Defecțiuni de abur la Breville/Sage Oracle: ce spun codurile de abur, rutina de purjare de încercat prima și când vinovatul e calcarul.">
+<link rel="canonical" href="https://ro.codefixcoffee.com/blog/breville-oracle-steam-guide/">
+<link rel="alternate" hreflang="en" href="https://blog.codefixcoffee.com/post/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="fr" href="https://fr.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="de" href="https://de.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="es" href="https://es.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="it" href="https://it.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="pl" href="https://pl.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="nl" href="https://nl.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="pt" href="https://pt.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="hu" href="https://hu.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="cs" href="https://cs.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="ro" href="https://ro.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="sv" href="https://sv.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+  <link rel="alternate" hreflang="tr" href="https://tr.codefixcoffee.com/blog/breville-oracle-steam-guide/" />
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="alternate" type="application/rss+xml" title="CodeFix Blog" href="/blog/rss.xml">
+<meta name="google-adsense-account" content="ca-pub-9660119725457689"><script>(function(){var u="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9660119725457689";var d=false;function l(){if(d)return;d=true;var s=document.createElement("script");s.async=true;s.crossOrigin="anonymous";s.src=u;document.head.appendChild(s)}["scroll","pointerdown","keydown","touchstart"].forEach(function(e){addEventListener(e,l,{once:true,passive:true})});addEventListener("load",function(){setTimeout(l,3500)})})();</script></head>
+<body>
+<header class="site"><div class="in"><a class="brand" href="/blog/">☕ CodeFix Blog</a><span><a href="/">Înapoi la site</a></span></div></header>
+<main>
+<h1>Breville/Sage Oracle: abur și coduri ER — ce verifici mai întâi</h1>
+<p class="meta">2026-10-22</p>
+<p>Circuitul de abur este cel mai aglomerat loc dintr-un Breville Oracle: un cazan de abur din inox, o baghetă cu texturare automată, sonde de nivel și o pompă de umplere, toate la temperatură zi de zi. Tot aici se nasc o mare parte din codurile aparatului. Familia Oracle rulează un tabel de service cu 32 de intrări pe care Breville nu îl publică, iar în Marea Britanie același hardware poartă insigna <strong>Sage</strong> — codurile sunt identice. Înainte să tragi concluzia că s-a ars o piesă, treci mai întâi prin verificările ieftine: majoritatea opririlor pe partea de abur sunt un vârf de baghetă înfundat, o purjare care nu s-a făcut sau calcar pe o sondă. Structura completă a tabelului o parcurgem în <a href="https://ro.codefixcoffee.com/breville/">secțiunea Breville/Sage</a>.</p>
+<h2>Unde stau codurile de abur în tabelul Oracle</h2>
+<p>Oracle (BES980) și Oracle Touch (BES990) împart același tabel; BES980 afișează „Error 1”–„Error 32”, iar BES990 prefixează ER. Intrările legate de abur se adună în cinci zone:</p>
+<ul>
+<li><strong>Error 1–4</strong> — senzorul de temperatură al cazanului de abur, în tot ciclul său: circuit deschis la pornire, semnal pierdut în funcționare și scurtcircuit în ambele situații. Un singur senzor, patru moduri de a-l raporta.</li>
+<li><strong>Error 13–16</strong> — același cvartet pentru senzorul de temperatură al baghetei de abur, sonda care oprește texturarea când laptele atinge temperatura potrivită. Trăiește în cel mai umed loc din aparat.</li>
+<li><strong>Error 18</strong> — cazanul de abur nu se încălzește normal.</li>
+<li><strong>Error 20 și 21</strong> — nivelul apei din cazanul de abur sau probleme la pompa de umplere, plus o citire a sondei de nivel care nu se potrivește cu așteptarea plăcii.</li>
+<li><strong>Error 26</strong> — cazanul de abur s-a supraîncălzit peste țintă; <strong>Error 32</strong> — scurgere la cazanul de abur sau eșec al reumplerii.</li>
+</ul>
+<p>Nu tot ce se întâmplă lângă baghetă ține de abur: codurile 5–8 aparțin senzorului cazanului de cafea, <a href="https://ro.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> fiind intrarea cu scurtcircuit în funcționare. Jurnalul stocat te ajută să desparți familiile — pe BES980, ține 1 CUP, 2 CUP și POWER simultan, cu aparatul oprit, ca să deschizi Error Storage și să parcurgi toate cele 32 de coduri împreună cu numărătorile lor.</p>
+<h2>Verificarea numărul unu: rutina de purjare</h2>
+<p>Abur slab sau care țâșnește în rafale, ori un cod venit exact după o băutură cu lapte, arată de obicei spre vârful baghetei, nu spre cazan:</p>
+<ol>
+<li>Deconectează aparatul și lasă bagheta să se răcească.</li>
+<li>Deșurubează vârful de abur și lasă-l la înmuiat în apă fierbinte cu puțin decalcificant; curăță fiecare orificiu cu acul de pe unealta de curățare.</li>
+<li>Rulează purjarea — cam zece secunde de abur în tava de scurgere, întâi cu vârful scos, apoi cu el montat.</li>
+<li>De acum înainte, purjează bagheta după fiecare sesiune de lapte: laptele uscat în vârf declanșează majoritatea acestor opriri.</li>
+</ol>
+<p>Dacă aparatul monitorizează presiunea aburului, cum face Oracle Jet prin codul E16, un vârf crustat poate sări codul înainte să observi măcar că aburul a slăbit.</p>
+<h2>Duritatea apei, calcarul și sondele de nivel</h2>
+<p>Unde apa este dură, calcarul își scrie singur codurile de eroare. Sondele de nivel ale cazanului de abur stau permanent în apă fierbinte, iar stratul calcaros le izolează, așa încât placa citește „fără apă” chiar și cu cazanul plin — acesta este traseul clasic spre Error 20 sau 21 și spre eșecul de reumplere de la Error 32. Depuneri se acumulează și pe traseul baghetei și la admisia pompei de umplere. O decalcificare completă, cu ciclul cazanului de abur inclus, este cel mai ieftin diagnostic pe care îl poți rula și șterge singură o parte surprinzător de mare din aceste coduri.</p>
+<p>Aceeași poveste o confirmă și fratele din gamă: Dual Boiler își ține codurile 00–12 ascunse într-un meniu de autoverificare, iar <a href="https://ro.codefixcoffee.com/breville/dual-boiler-bes920/00/">codul 00</a> — senzorul cazanului de abur nedetectat — stă în fruntea unui tabel ale cărui intrări de nivel și de umplere reacționează identic la apa dură.</p>
+<h2>Când decalcifici și când demontezi</h2>
+<p>Întâi decalcificarea, apoi șurubelnița — dar cu limitele bine stabilite:</p>
+<ul>
+<li><strong>Decalcifică primul</strong> la codurile de nivel, sondă și reumplere (20, 21, 32), la abur slab fără niciun cod și la orice aparat cu peste trei luni de la ultimul ciclu. Costul: o sticlă de decalcificant.</li>
+<li><strong>Decalcificarea nu rezolvă</strong> un cod de senzor care revine imediat pe un aparat proaspăt decalcificat și cald — fie o intrare din 1–4 pe partea de abur, fie <a href="https://ro.codefixcoffee.com/breville/oracle-bes980/error-8/">Error 8</a> pe partea de cafea. Un cod care supraviețuiește decalcificării arată spre senzor, spre cablul lui sau spre un conector.</li>
+<li><strong>Oprește-te și verifică garniturile</strong> dacă Error 26 se repetă: o garnitură o-ring a sondei de abur care pierde lasă aburul să încălzească cablajul senzorului și mimează un cazan care o ia razna. O-ring-urile noi pentru sondă sunt ieftine; o placă triac care nu mai întrerupe încălzitorul, nu.</li>
+<li><strong>Error 18</strong> pe un aparat care nu mai face deloc abur ține de obicei de partea de încălzire — siguranță termică, rezistență de încălzire sau placă — nu de calcar, deci tratează-l ca reparație, nu ca curățenie.</li>
+</ul>
+<h3>Sfat practic pentru România</h3>
+<p>Duritatea apei diferă mult de la o zonă la alta a țării, iar majoritatea furnizorilor publică buletinele anuale de calitate a apei — câteva minute de căutare îți spun în ce categorie ești. La apă mediu-dură sau dură, scurtează intervalul dintre decalcificări față de recomandarea generică din manual sau folosește apă filtrată la cazanul de abur. Rutina de purjare a baghetei rămâne obligatorie indiferent de apa din rețea.</p>
+<h2>Cât costă piesele</h2>
+<p>Ansamblurile originale de senzori de temperatură pleacă de la 25 € și urcă până la 95 €, în funcție de senzor; baghetele complete de abur, cu senzor cu tot, se situează în jurul a 60–95 €; un kit de sondă cu o-ring-uri costă cam 85 €, iar o pompă de umplere 30–60 €. Față de aceste cifre, ofertele producătorului în afara garanției pentru defecte interne pornesc de regulă de la 300 € și ajung la 500 €, deci aritmetica aproape mereu câștigă: întâi sticla de decalcificant, apoi remedierea la nivel de senzor. Pentru îngrijirea curentă a baghetei și a cănii de lapte, <a href="https://www.sageappliances.co.uk">ghidurile oficiale Sage</a> sunt referința potrivită.</p>
+</main>
+<footer>Ghiduri de reparații și explicații ale codurilor de eroare de la codefixcoffee.com.</footer>
+</body></html>
